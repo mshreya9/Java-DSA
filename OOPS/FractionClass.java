@@ -26,9 +26,10 @@ class Fraction {
         simplify();
     }
 
-    public void setDenominator(int d) {
+    public void setDenominator(int d) throws ZeroDenominatorException{
         if(d == 0){
-            return;
+            ZeroDenominatorException e = new ZeroDenominatorException();
+            throw e;
         }
         this.den = d;
         simplify();
@@ -74,8 +75,11 @@ class Fraction {
     }
 }
 
+class ZeroDenominatorException extends Exception {
+
+}
 class FractionUse {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ZeroDenominatorException{
         Fraction f1 = new Fraction(20,30);
         f1.print();
         // 2/3
@@ -91,7 +95,10 @@ class FractionUse {
         // System.out.println(Fraction.add(f1, f2));
 
         f1.setNumerator(10);
-        f1.setDenominator(30);
+        try {
+            f1.setDenominator(0);
+        } catch (ZeroDenominatorException e) {
+            System.out.println("Cannot put a zero in denominator!");        }
         f1.print();
         // 1/3
 
@@ -119,3 +126,4 @@ class FractionUse {
     }
 }
 
+//For Exception Handling, either catch the exception or mention in the function's signature that you throw the exception
