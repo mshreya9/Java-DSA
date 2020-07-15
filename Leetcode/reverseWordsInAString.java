@@ -5,9 +5,6 @@ class Solution {
         for(int i = arr.length-1; i >= 0 ; i--){
             if (!arr[i].isEmpty()) {
                 op.append(arr[i]);
-                if(arr[i] == arr[0]){
-                    break;
-                }
                 op.append(" ");
             }
         }
