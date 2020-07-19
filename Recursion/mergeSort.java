@@ -26,6 +26,7 @@ class Solution {
     public static void merge(int[] input1, int input2[], int[] output) {
 
         int i = 0, j = 0, k = 0;
+        //Filling the output array in a sorted way by taking elements from input1 and input2 array
         while (i < input1.length && j < input2.length) {
             if (input1[i] < input2[j]) {
                 output[k++] = input1[i++];
@@ -33,11 +34,13 @@ class Solution {
                 output[k++] = input2[j++];
             }
         }
+        //Adding the rest of the elements of part1 array (input1) 
         while (i < input1.length) {
             output[k] = input1[i];
             k++;
             i++;
         }
+        //Adding the rest of the elements of part2 array (input2) 
         while (j < input2.length) {
             output[k] = input2[j];
             j++;
@@ -65,3 +68,5 @@ class Solution {
     }
 
 }
+
+//Merge Sort technique is based on 'Divide and Conquer' strategy
