@@ -20,7 +20,7 @@ class RatInMaze {
             //printing a path (one of many possible paths)
             for(int r = 0; r < n; r++){
                 for(int c = 0; c < n; c++){
-                    System.out.println(path[r][c] + " ");
+                    System.out.print(path[r][c] + " ");
                 }
                 System.out.println();
             }
