@@ -1,5 +1,5 @@
 // Problem-3 Find two numbers that add up to n
-//Solve it usinh hash set for least time complexity
+//Solve it using hash set for least time complexity
 
 import java.util.*;
 
