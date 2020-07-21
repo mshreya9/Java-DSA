@@ -2,7 +2,7 @@
 
 import java.util.*;
 
-class CheckSecondMax {
+class SecondMax {
   
     public static void findSecondMaximum(int[] arr)
     {
@@ -24,6 +24,6 @@ class CheckSecondMax {
 
     public static void main(String[] args){
         int[] arr = {9, 2, 3, 6};
-        CheckSecondMax.findSecondMaximum(arr);
+        SecondMax.findSecondMaximum(arr);
     }
   }
