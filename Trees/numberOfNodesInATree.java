@@ -38,3 +38,5 @@ class TreeUse {
         System.out.println("The number of nodes in tree are: " + numNodes(root)); 
     }
 }
+
+//Output: The number of nodes in tree are: 5
