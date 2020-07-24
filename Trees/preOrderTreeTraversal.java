@@ -40,3 +40,4 @@ class TreeUse {
     }
 }
 
+//Output: 4 2 3 6 9 5 
