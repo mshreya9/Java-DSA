@@ -36,3 +36,5 @@ class BinaryTreeUse {
         preorder(root);
     }
 }
+
+//Output: 1 2 4 5 3 6 7 
