@@ -14,7 +14,7 @@ class BinaryTreeUse {
         if(root == null){ //Base Case
             return;
         }
-        String toBePrinted = root.data + "";
+        String toBePrinted = root.data + " ";
         if(root.left != null){
             toBePrinted += "L:" + root.left.data + ",";
         }
@@ -56,9 +56,9 @@ class BinaryTreeUse {
 
 //Taking input is not easy hence take input in Level order
 //Output:
-// 1L:2,R:3
-// 2L:4,R:5
+// 1 L:2,R:3
+// 2 L:4,R:5
 // 4
 // 5
-// 3R:6
+// 3 R:6
 // 6
