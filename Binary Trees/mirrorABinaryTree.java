@@ -63,3 +63,11 @@ class BinaryTreeUse {
     }
 }
 
+//Output:
+// 1 L:3,R:2
+// 3 L:7,R:6
+// 7
+// 6
+// 2 L:5,R:4
+// 5
+// 4 
