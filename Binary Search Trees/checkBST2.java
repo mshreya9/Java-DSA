@@ -42,3 +42,5 @@ class BinarySearchTree {
         System.out.println(isBST(root, 1, 7));
     }
 }
+
+//Output: true
