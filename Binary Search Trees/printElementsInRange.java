@@ -15,7 +15,7 @@ class BinaryTreeUse {
             return;
         }
         if(root.data <= y && root.data >= x){
-            System.out.println(root.data + " ");
+            System.out.print(root.data + " ");
         }
         if(root.data >= x){
             printElementsInRange(root.left, x, y);
@@ -44,3 +44,6 @@ class BinaryTreeUse {
         printElementsInRange(root, 20, 50);        
     }
 }
+
+//Output:
+//40 20 30 50 
