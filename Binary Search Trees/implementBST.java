@@ -118,8 +118,24 @@ class BinarySearchTree {
         bst.insertData(15);
         bst.insertData(3);
         bst.insertData(7);
-
+        bst.deleteData(10); //right side minimum would be the new root
         bst.printTree();
     }
 
 }
+
+//Output:
+// 10 L:5,R:20
+// 5 L:3,R:7
+// 3
+// 7
+// 20 L:15,
+// 15
+
+//After Line 121
+//Ouput:
+// 15 L:5,R:20
+// 5 L:3,R:7
+// 3
+// 7
+// 20
