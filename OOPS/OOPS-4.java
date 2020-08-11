@@ -41,6 +41,9 @@ class StudentUse4{
     public static void main(String[] args) {
         Student s1 = new Student("Shreya", 123);
         s1.print();
+        System.out.println(s1.getRoll()); //Output: 123
+        System.out.println(s1.roll); //error: roll has private access in Student
+        System.out.println(s1.name); //Output: Shreya
         Student s2 = new Student("Shourya", 125);
         s2.print();
         //We can access numStudents by any object, it will return the same value
