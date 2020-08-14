@@ -1,10 +1,10 @@
 class MinimumSteps {
-    //Brute force - recursion
+    //Brute Force - Recursion
     public static int countSteps(int n){
        if(n == 1){
            return 0;
        }
-       int op1 = countSteps(n - 1);
+       int op1 = countSteps(n - 1); //We are subtracting 1 always but checking for divisible by 2 and 3
        int minSteps = op1;
        if(n % 3 == 0){
            int op2 = countSteps(n / 3);
@@ -21,6 +21,7 @@ class MinimumSteps {
        return 1 + minSteps; 
     }
 
+    //Recursion Using Memoization
     public static int countStepsM(int n){
         int[] storage = new int[n+1];
         return countStepsM(n, storage);
@@ -30,7 +31,7 @@ class MinimumSteps {
             storage[n] = 0;
             return storage[n];
         }
-        if(storage[n] != 0){ //check if it is already calculated or not
+        if(storage[n] != 0){ //check if it is already calculated or not. If it is, then no need to have recursive calls. Instead use the stored value from storage array.
             return storage[n];
         }
 
@@ -48,13 +49,24 @@ class MinimumSteps {
                 minSteps = op3;
             }
         }
+
+        //Store it first, then return
         storage[n] = 1 + minSteps;
         return storage[n]; 
     }
 
     public static void main(String[] args){
         int n = 10;
+        int s = 100;
         System.out.println(countStepsM(n));
         System.out.println(countSteps(n));
+        System.out.println(countStepsM(s));
+        System.out.println(countSteps(s));
     }
 }
+
+//Output
+// 3
+// 3
+// 7
+// 7
