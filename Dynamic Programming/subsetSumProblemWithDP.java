@@ -28,8 +28,8 @@ class Solution {
     }
     public static void main(String[] args) {
         int arr[] = {2, 3, 7, 8, 10};
-        int sum = 11;
-        System.out.println(subsetSum(arr, sum, 4)); 
+        int sum = 14;
+        System.out.println(subsetSum(arr, sum, 5)); 
     }
 }
 
