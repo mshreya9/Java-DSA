@@ -17,7 +17,7 @@ class Solution {
                     t[i][j] = Math.max((val[i-1] + t[i-1][j-wt[i-1]]), t[i-1][j]);
                 }
                 else{
-                    t[i][j] = t[j][i-1];
+                    t[i][j] = t[i-1][j];
                 }
             }
         }
