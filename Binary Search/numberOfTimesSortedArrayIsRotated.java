@@ -31,3 +31,5 @@ class Solution {
         System.out.println(binarySearch(arr));
     }
 }
+
+//Output: 4
