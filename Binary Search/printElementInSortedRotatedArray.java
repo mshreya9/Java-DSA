@@ -2,9 +2,6 @@ class Solution {
     public static int indexOfMinElem(int[] arr){
         int n = arr.length;
         int start = 0, end = n-1;
-        if(arr[0] < arr[n-1]){
-            return 0;
-        }
 
         while(start <= end){
             int mid = start + (end-start)/2;
