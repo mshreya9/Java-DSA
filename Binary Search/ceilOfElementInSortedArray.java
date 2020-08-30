@@ -1,5 +1,5 @@
 class Solution {
-    public static int floorOfElement(int[] arr, int elem){
+    public static int ceilOfElement(int[] arr, int elem){
         int n = arr.length;
         int start = 0;
         int end = n-1;
@@ -23,7 +23,7 @@ class Solution {
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,8,10,10,12,19};
         int elem = 5;
-        System.out.println(floorOfElement(arr, elem));
+        System.out.println(ceilOfElement(arr, elem));
     }
 }
 
