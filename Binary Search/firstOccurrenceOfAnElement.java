@@ -1,5 +1,5 @@
 class Solution {
-    public static int binarySearch(int[] arr, int elem){
+    public static int firstOccurrence(int[] arr, int elem){
         int n = arr.length;
         int start = 0;
         int end = n-1;
@@ -23,7 +23,7 @@ class Solution {
     public static void main(String[] args) {
         int[] arr = {2, 4, 10, 10, 10, 18, 20};
         int elem = 10;
-        System.out.println(binarySearch(arr, elem));
+        System.out.println(firstOccurrence(arr, elem));
     }
 }
 
