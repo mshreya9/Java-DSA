@@ -1,5 +1,5 @@
 class Solution {
-    public static int binarySearch(int[] arr){
+    public static int peakElement(int[] arr){
         int n = arr.length;
         int start = 0;
         int end = n-1;
@@ -38,7 +38,7 @@ class Solution {
     }
     public static void main(String[] args) {
         int[] arr = {5,10,20,15};
-        System.out.println(binarySearch(arr));
+        System.out.println(peakElement(arr));
     }
 }
 
