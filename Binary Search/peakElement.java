@@ -1,6 +1,9 @@
 class Solution {
     public static int peakElement(int[] arr){
         int n = arr.length;
+        if(n == 1){
+            return 0;
+        }
         int start = 0;
         int end = n-1;
 
