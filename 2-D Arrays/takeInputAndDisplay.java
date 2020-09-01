@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class wavePrint {
+class Solution {
     public static int[][] takeInput(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number of rows:");
