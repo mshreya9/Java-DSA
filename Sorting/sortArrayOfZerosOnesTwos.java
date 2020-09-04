@@ -1,3 +1,5 @@
+//Dutch National Flag Algorithm
+
 class Solution {
     public static void main(String[] args) {
         int[] arr = {1,1,0,2,1,0,2};
