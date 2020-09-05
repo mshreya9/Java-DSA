@@ -1,5 +1,3 @@
-// Given an array, find the nearest largest element to the right for each element of the array (Next largest Element)
-
 import java.util.*;
 class Solution {
     public static void main(String[] args) {
