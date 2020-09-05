@@ -1,6 +1,6 @@
-// Given an array, find the nearest largest element to the left for each element of the array.
-import java.util.*;
+// Given an array, find the nearest largest element to the right for each element of the array (Next largest Element)
 
+import java.util.*;
 class Solution {
     public static void main(String[] args) {
         int[] arr = {1,3,0,0,1,2,4};
