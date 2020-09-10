@@ -57,10 +57,49 @@ class BST{
         //right call
         display(node.right);
     }
+    
+    //Search in BST
+    public boolean find(int item){
+        return find(this.root, item);
+    }
+
+    private boolean find(Node node, int item){
+        //Base condition
+        if(node == null){
+            return false;
+        }
+
+        if(item > node.data){
+            return find(node.right, item);
+        }
+        else if(item < node.data){
+            return find(node.left, item);
+        }
+        else{
+            return true;
+        }
+    }
+
+    //Find max in BST
+    public int max(){
+        return max(this.root);
+    }
+    private int max(Node node){
+        if(node.right == null){
+            return node.data;
+        }
+        return max(node.right);
+    }
+}
+
+class TreeUse{
     public static void main(String[] args) {
         int[] arr = {10,20,30,40,50,60,70};
         BST bst = new BST(arr);
         bst.display();
+        int item = 100;
+        System.out.println(bst.find(item));
+        System.out.println(bst.max());
     }
 }
 
@@ -72,3 +111,5 @@ class BST{
 // 50->60<-70
 // .->50<-.
 // .->70<-.
+//false
+//70
