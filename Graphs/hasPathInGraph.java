@@ -1,3 +1,15 @@
+//Check if path exists in graph from one vertex to another
+
+//Graph for reference -->
+
+// A-----------------D-----------E
+// |                 |           | -
+// |                 |           |  -
+// |                 |           |   -
+// |                 |           |    -
+// |                 |           |     -
+// B-----------------C           F------G   
+
 import java.util.*;
 
 class Graph {
@@ -20,21 +32,21 @@ class Graph {
 
     //Add Edge
     public void addEdge(String vname1, String vname2, int cost){
-        Vertex vtx1 = vtces.get(vname1); //2k 
-        Vertex vtx2 = vtces.get(vname2); //4k
+        Vertex vtx1 = vtces.get(vname1); 
+        Vertex vtx2 = vtces.get(vname2); 
 
         if(vtx1 == null || vtx2 == null || vtx1.nbrs.containsKey(vname2)){
             return;
         }
 
-        vtx1.nbrs.put(vname2, cost); //2k nbrs put C with a given cost
-        vtx2.nbrs.put(vname1, cost); //4k nbrs put A with a given cost
+        vtx1.nbrs.put(vname2, cost); 
+        vtx2.nbrs.put(vname1, cost); 
     }
 
     //Contains Edge
     public boolean containsEdge(String vname1, String vname2){
-        Vertex vtx1 = vtces.get(vname1); //2k address
-        Vertex vtx2 = vtces.get(vname2); //4k
+        Vertex vtx1 = vtces.get(vname1); 
+        Vertex vtx2 = vtces.get(vname2); 
 
         if(vtx1 == null || vtx2 == null || !vtx1.nbrs.containsKey(vname2)){
             return false;
@@ -44,8 +56,8 @@ class Graph {
 
     //Remove Edge
     public void removeEdge(String vname1, String vname2){
-        Vertex vtx1 = vtces.get(vname1); //2k 
-        Vertex vtx2 = vtces.get(vname2); //4k
+        Vertex vtx1 = vtces.get(vname1);  
+        Vertex vtx2 = vtces.get(vname2); 
 
         if(vtx1 == null || vtx2 == null || !vtx1.nbrs.containsKey(vname2)){
             return;
