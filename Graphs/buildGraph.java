@@ -87,6 +87,7 @@ class Graph {
         vtx2.nbrs.remove(vname1); //4k nbrs remove A 
     }
 
+    //Display graph
     public void display(){
         System.out.println("------------------");
         ArrayList<String> keys = new ArrayList<>(vtces.keySet());
