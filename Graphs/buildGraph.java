@@ -1,3 +1,15 @@
+//Implementation of Graph
+
+//Graph for reference -->
+
+// A-----------------D-----------E
+// |                 |           | -
+// |                 |           |  -
+// |                 |           |   -
+// |                 |           |    -
+// |                 |           |     -
+// B-----------------C           F------G   
+
 import java.util.*;
 
 class Graph {
