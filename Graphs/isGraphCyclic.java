@@ -1,6 +1,3 @@
-//Breadth First Search - this problem is similar to Level Order Traversal in Binary Tree
-//BFS returns the shortest path
-
 //Graph for reference -->
 
 // A-----------------D-----------E
@@ -43,18 +40,6 @@ class Graph {
         vtx1.nbrs.put(vname2, cost); 
         vtx2.nbrs.put(vname1, cost); 
     }
-
-    //Contains Edge
-    public boolean containsEdge(String vname1, String vname2){
-        Vertex vtx1 = vtces.get(vname1); 
-        Vertex vtx2 = vtces.get(vname2); 
-
-        if(vtx1 == null || vtx2 == null || !vtx1.nbrs.containsKey(vname2)){
-            return false;
-        }
-        return true;
-    }
-
     private class Pair {
         String vname;
         String pathsofar;
@@ -144,4 +129,5 @@ class GraphUse{
     }
 }
 
-
+//Output
+//true
