@@ -1,6 +1,3 @@
-//Breadth First Search - this problem is similar to Level Order Traversal in Binary Tree
-//BFS returns the shortest path
-
 //Graph for reference -->
 
 // A-----------------D           E
