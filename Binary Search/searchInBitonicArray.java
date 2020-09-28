@@ -1,5 +1,5 @@
 class Solution {
-    public static int binarySearch(int[] arr, int start, int end, int key){
+    public static int binarySearchAsc(int[] arr, int start, int end, int key){
         while(start <= end){
             int mid = start + (end-start)/2;
             if(key == arr[mid]){
@@ -15,7 +15,23 @@ class Solution {
         return -1;
     }
 
-    public static int maxElement(int[] arr){
+    public static int binarySearchDesc(int[] arr, int start, int end, int key){
+        while(start <= end){
+            int mid = start + (end-start)/2;
+            if(key == arr[mid]){
+                return mid;
+            }
+            else if(key < arr[mid]){
+                end = mid - 1;
+            }
+            else{
+                start = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    public static int peakIndex(int[] arr){
         int n = arr.length;
         int start = 0;
         int end = n-1;
@@ -55,9 +71,9 @@ class Solution {
 
     public static void searchInBitoniArray(int[] arr, int key){
         int n = arr.length;
-        int index = maxElement(arr);
-        int x = binarySearch(arr, 0, index-1, key);
-        int y = binarySearch(arr, index, n-1, key);
+        int index = peakIndex(arr);
+        int x = binarySearchAsc(arr, 0, index-1, key);
+        int y = binarySearchDesc(arr, index, n-1, key);
 
         if(x == -1 && y == -1){
             System.out.println("Element is not present!");
