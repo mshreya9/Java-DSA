@@ -37,4 +37,4 @@ class BinaryTreeUse {
     }
 }
 
-//Output: 5
+//Output: 3
