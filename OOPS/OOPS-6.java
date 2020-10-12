@@ -36,7 +36,7 @@ class Car extends Vehicle {
 
     Car(int numGears, int maxSpeed){
         super(maxSpeed);
-        thi.numGears = numGears;
+        this.numGears = numGears;
         System.out.println("Car constructor");
     }
 
@@ -51,6 +51,10 @@ class Car extends Vehicle {
     }
 }
 
+//Output
+//OOPS-6.java:33: error: cannot inherit from final Vehicle
+
+
 //Important :-
 //1. if Vehicle class print() method is made final, then Car class cannot override the print() method that means Car class cannot have any function with the same name and signature as print() method.
 //Error : Cannot override the final method from Vehicle. Hence, change the name to printCar()
@@ -58,3 +62,5 @@ class Car extends Vehicle {
 //2. If Vehicle class is made final then you cannot inherit Car class from it.
 //Error: The type Car cannot subclass the final class Vehicle
 
+
+//Note: Runtime polymorphism can't be achieved by data members.
