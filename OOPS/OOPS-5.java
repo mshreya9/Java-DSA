@@ -5,8 +5,8 @@ class Vehicle {
     int maxSpeed;
 
     public void print(){
-        System.out.println("Vehicle color" + color);
-        System.out.println("Vehicle Speed" + maxSpeed);
+        System.out.println("Vehicle color " + color);
+        System.out.println("Vehicle Speed " + maxSpeed);
     }
 }
 
@@ -27,6 +27,15 @@ class VehicleUse{
         c.print();
     }
 }
+
+//Output
+// Vehicle color null
+// Vehicle Speed 0
+// Vehicle color Black
+// Vehicle Speed 90
+
+
+//Important points
 
 //With the help of inheritance, we are able to inherit common traits(Vehicle class properties) i.e. data members and functions, into Car class.
 
