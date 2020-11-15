@@ -29,9 +29,9 @@ class Solution {
         }
     }
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5};
-        int k = 4;
-        int X = 3;
+        int[] arr = {5,6,7,8,9};
+        int k = 3;
+        int X = 7;
         kClosestNumbers(arr, k, X);
     }
 }
