@@ -6,10 +6,10 @@ class Solution {
         int second;
     }
 
-    public static void topKFreqNos(int[] arr, int k){
-        PriorityQueue<Pair> pq=new PriorityQueue<>(new Comparator<Pair>(){
+    public static void freqSort(int[] arr){
+        PriorityQueue<Pair> pq = new PriorityQueue<>(new Comparator<Pair>(){
                 public int compare(Pair a, Pair b){
-                    return a.first-b.first;
+                    return b.first - a.first;
                 }
             }
         );
@@ -23,29 +23,28 @@ class Solution {
                 map.put(arr[i], 1);
             }
         }
-        //Sorting on the basis of the frequency of elements in the map
+
         for(Integer i : map.keySet()){
             // create a new pair
             Pair p = new Pair();
             p.first = map.get(i);
             p.second = i;
             pq.add(p);
-            if(pq.size() > k){
-                pq.poll();
-            }
         }
         while(pq.size() > 0){
-            System.out.println(pq.peek().second);
+            int freq = pq.peek().first;
+            int elem = pq.peek().second;
+            for(int i = 1; i <= freq; i++){
+                System.out.print(elem + " ");
+            }
             pq.poll();
         }
     }
     public static void main(String[] args) {
         int[] arr = {1,1,1,3,2,2,4};
-        int k = 2;
-        topKFreqNos(arr, k);
+        freqSort(arr);
     }
 }
 
 //Output:
-//2
-//1
+//1 1 1 2 2 3 4
