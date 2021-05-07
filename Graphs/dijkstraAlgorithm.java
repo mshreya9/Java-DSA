@@ -53,7 +53,7 @@ class Graph {
     //Pair class
     private class Pair implements Comparable<Pair>{
         String vname;
-        String acqvname;
+        String psf;
         int cost;
 
         @Override
@@ -62,10 +62,11 @@ class Graph {
         }
     }
 
-    public Graph prims(){
-        Graph mst = new Graph();
+    public HashMap<String, Integer> dijkstra(String src){
+        HashMap<String, Integer> ans = new HashMap<>();
         HashMap<String, Pair> map = new HashMap<>();
 
+        //HeapGeneric<Pair> heap = new HeapGeneric<>();
         //creating a min heap
         PriorityQueue<Pair> heap = new PriorityQueue<>(new Comparator<Pair>(){
                 public int compare(Pair a, Pair b){
@@ -78,9 +79,13 @@ class Graph {
         for(String key : vtces.keySet()){
             Pair np = new Pair();
             np.vname = key;
-            np.acqvname = null;
+            np.psf = "";
             np.cost = Integer.MAX_VALUE;
 
+            if(key.equals(src)){
+                np.psf = key;
+                np.cost = 0;
+            }
             heap.add(np);
             map.put(key, np);
         }
@@ -91,14 +96,8 @@ class Graph {
             Pair rp = heap.remove();
             map.remove(rp.vname);
 
-            //add to mst
-            if(rp.acqvname == null){
-                mst.addVertex(rp.vname);
-            }
-            else{
-                mst.addVertex(rp.vname);
-                mst.addEdge(rp.vname, rp.acqvname, rp.cost);
-            }
+            //add to ans
+            ans.put(rp.vname, rp.cost);
 
             //nbrs
             for(String nbr : vtces.get(rp.vname).nbrs.keySet()){
@@ -106,21 +105,20 @@ class Graph {
                 //work for nbrs which are in heap
                 if(map.containsKey(nbr)){
                     int oldcost = map.get(nbr).cost;
-                    int newcost = vtces.get(rp.vname).nbrs.get(nbr);
+                    int newcost = rp.cost + vtces.get(rp.vname).nbrs.get(nbr);
 
                     //update the pair only when newcost < oldcost
                     if(newcost < oldcost){
-                        Pair gp = map.get(nbr);
-                        gp.acqvname = rp.vname;
-                        gp.cost = newcost;
-
-                        heap.updatePriority(gp);
+                        Pair getpair = map.get(nbr);
+                        getpair.psf = rp.psf + nbr;
+                        getpair.cost = newcost;
+                        heap.updatePriority(getpair);
                     }
                 }
             }
         }
 
-        return mst;
+        return ans;
     }
 }
 
@@ -137,17 +135,18 @@ class GraphUse{
         graph.addVertex("G");
 
         graph.addEdge("A", "B", 2);
-        graph.addEdge("A", "D", 6);
+        graph.addEdge("A", "D", 10);
         graph.addEdge("B", "C", 3);
         graph.addEdge("C", "D", 1);
         graph.addEdge("D", "E", 8);
         graph.addEdge("E", "F", 5);
-        graph.addEdge("E", "G", 7);
-        graph.addEdge("F", "G", 9);
+        graph.addEdge("E", "G", 6);
+        graph.addEdge("F", "G", 4);
 
-        graph.prims().display();
+        System.out.println(graph.dijkstra("A"));
 
     }
 }
 
 
+ 
