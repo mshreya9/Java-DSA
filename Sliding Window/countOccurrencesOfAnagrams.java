@@ -6,11 +6,9 @@ public class countOccurrencesOfAnagrams {
         String p = "aaba";
 
         int k = p.length();
-        int i = 0, j = 0;
-
         Map<Character, Integer> map = new HashMap<>();
-        for(int m = 0; m < k; m++){
-            char ch = p.charAt(m);
+        for(int i = 0; i < k; i++){
+            char ch = p.charAt(i);
             if(map.containsKey(ch)){
                 map.put(ch, map.get(ch) + 1);
             } else{
@@ -18,6 +16,8 @@ public class countOccurrencesOfAnagrams {
             }
         }
         
+        //Initialisations
+        int i = 0, j = 0;
         int count = map.size();
         int ans = 0; //count of anagrams
 
@@ -44,6 +44,7 @@ public class countOccurrencesOfAnagrams {
                     System.out.println(s.substring(i, j+1));
                 }
 
+                //add the count of letter before doing i++
                 if(map.containsKey(s.charAt(i))){
                     char ch1 = s.charAt(i);
                     map.put(ch1, map.get(ch1) + 1);
@@ -53,6 +54,7 @@ public class countOccurrencesOfAnagrams {
                     }
                 }
 
+                //slide
                 i++;
                 j++;
             }
