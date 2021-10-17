@@ -36,3 +36,5 @@ class BinaryTreeUse {
         System.out.println(isNodePresent(root, 4));
     }
 }
+
+//Output: true
