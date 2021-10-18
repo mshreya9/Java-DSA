@@ -1,3 +1,6 @@
+//This exact same question was asked in my Microsoft's coding round for internship offer (on campus)
+//Check the Input and Output at the end of the code to understand the problem asked
+
 import java.util.*;
 
 public class mathsInString{
