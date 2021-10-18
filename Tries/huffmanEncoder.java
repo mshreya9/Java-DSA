@@ -104,10 +104,17 @@ public class huffmanEncoder {
 
     public static void main(String[] args) {
         String str = "abbccda";
+        System.out.println("Input String: " + str);
         huffmanEncoder hf = new huffmanEncoder(str);
         String codedString = hf.encode(str);
-        System.out.println(codedString);
+        System.out.println("Coded String: " + codedString);
         String output = hf.decode(codedString);
-        System.out.println(output);
+        System.out.println("Decoded String: " + output);
     }
 }
+
+//Output printed on screen:
+
+// Input String: abbccda
+// Coded String: 11010110100011
+// Decoded String: abbccda
