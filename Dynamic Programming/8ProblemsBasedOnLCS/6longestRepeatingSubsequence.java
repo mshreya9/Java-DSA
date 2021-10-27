@@ -1,10 +1,5 @@
 class Solution {
-    public static int LPS(String X, int n){
-        StringBuilder sb = new StringBuilder();
-        sb.append(X);
-        sb.reverse();
-        String Y = sb.toString();
-
+    public static int repeatSub(String a, String b, int n){
         int[][] t = new int[n+1][n+1];
         for(int i = 0; i < n+1; i++){
             for(int j = 0; j < n+1; j++){
@@ -13,10 +8,9 @@ class Solution {
                 }
             }
         }
-
         for(int i = 1; i < n+1; i++){
             for(int j = 1; j < n+1; j++){
-                if(X.charAt(i-1) == Y.charAt(j-1)){
+                if(a.charAt(i-1) == b.charAt(j-1) && i != j){
                     t[i][j] = 1 + t[i-1][j-1];
                 }
                 else{
@@ -27,9 +21,14 @@ class Solution {
         return t[n][n];
     }
     public static void main(String[] args) {
-        String X = "agbcba";
-        System.out.println(LPS(X, X.length()));
+        String s = "AABEBCDD";
+        int n = s.length();
+        String a = s;
+        String b = s;
+        System.out.println(repeatSub(a, b, n));
     }
 }
 
-//Output: 5
+// longest Repeating Subsequence will be -> ABD whose length is 3
+
+//Output: 3

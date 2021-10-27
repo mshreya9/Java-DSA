@@ -1,11 +1,4 @@
-class Fibonacci {
-    public static int fib(int n){
-        if(n == 0 || n == 1){
-            return n;
-        }
-        return fib(n-1)+fib(n-2);
-    }
-
+class fibonacciWithMemoization {
     public static int fibM(int n){
         int[] storage = new int[n+1];
         for(int i = 0; i <=n; i++){
@@ -27,7 +20,12 @@ class Fibonacci {
     }
 
     public static void main(String[] args){
-        int n = 4;
-        System.out.println(fibM(n));
+        int n = 10;
+        System.out.println("The 10th fibonacci number is: " + fibM(n-1));
     }
 }
+
+//The Fibonacci series upto 10 elements is: 0 1 1 2 3 5 8 13 21 34
+
+//output:
+//The 10th fibonacci number is: 34

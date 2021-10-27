@@ -1,5 +1,5 @@
 class MinimumSteps {
-    public static int countStepsDP(int n){
+    public static int countStepsM(int n){
         int[] storage = new int[n+1];
         storage[1] = 0;
         for(int i = 2; i <= n; i++){
@@ -21,7 +21,7 @@ class MinimumSteps {
     
     public static void main(String[] args){
         int n = 100;
-        System.out.println(countStepsDP(n));
+        System.out.println(countStepsM(n));
     }
 }
 

@@ -38,4 +38,6 @@ class Solution{
     }
 }
 
+// String "nitik" will have 2 palindrome partitions -> n | iti | k
+
 //Output: 2

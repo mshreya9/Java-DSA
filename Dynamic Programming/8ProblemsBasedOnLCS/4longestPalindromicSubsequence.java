@@ -1,8 +1,13 @@
 class Solution {
-    public static int LCS(String X, String Y, int n, int m){
-        int[][] t = new int[n+1][m+1];
+    public static int LPS(String X, int n){
+        StringBuilder sb = new StringBuilder();
+        sb.append(X);
+        sb.reverse();
+        String Y = sb.toString();
+
+        int[][] t = new int[n+1][n+1];
         for(int i = 0; i < n+1; i++){
-            for(int j = 0; j < m+1; j++){
+            for(int j = 0; j < n+1; j++){
                 if(i == 0 || j == 0){
                     t[i][j] = 0;
                 }
@@ -10,7 +15,7 @@ class Solution {
         }
 
         for(int i = 1; i < n+1; i++){
-            for(int j = 1; j < m+1; j++){
+            for(int j = 1; j < n+1; j++){
                 if(X.charAt(i-1) == Y.charAt(j-1)){
                     t[i][j] = 1 + t[i-1][j-1];
                 }
@@ -19,14 +24,14 @@ class Solution {
                 }
             }
         }
-        int lengthLCS = t[n][m];
-        return (n+m) - lengthLCS;
+        return t[n][n];
     }
     public static void main(String[] args) {
-        String X = "AGGTAB";
-        String Y = "GXTXAYB";
-        System.out.println(LCS(X, Y, X.length(), Y.length()));
+        String X = "agbcba";
+        System.out.println(LPS(X, X.length()));
     }
 }
 
-//Output: 9
+// LPS (Longest Palindromic Subsequence) will be -> abcba whose length is 5
+
+//Output: 5
