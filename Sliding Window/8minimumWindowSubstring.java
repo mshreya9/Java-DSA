@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class minimumWindowSubstring {
+class minimumWindowSubstring {
     public static void main(String[] args) {
         String s = "timetopractice";
         String t = "toc";

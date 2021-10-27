@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class countOccurrencesOfAnagrams {
+class countOccurrencesOfAnagrams {
     public static void main(String[] args) {
         String s = "aabaabaa";
         String p = "aaba";

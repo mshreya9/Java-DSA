@@ -1,4 +1,4 @@
-public class largestSubarrayOfSumK {
+class largestSubarrayOfSumK {
     public static void main(String[] args) {
         int[] A = {4,1,1,1,2,3,5};
         int N = 7;
