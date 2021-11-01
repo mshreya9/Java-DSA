@@ -1,152 +1,70 @@
-//Graph for reference -->
-
-// A-----------------D-----------E
-// |                 |           | -
-// |                 |           |  -
-// |                 |           |   -
-// |                 |           |    -
-// |                 |           |     -
-// B-----------------C           F------G   
-
-import java.util.*;
-
-class Graph {
-    private class Vertex {
-        HashMap<String, Integer> nbrs = new HashMap<>();
-    }
-
-    HashMap<String, Vertex> vtces;
-
-    //Constructor
-    public Graph(){
-        vtces = new HashMap<>();
-    }
-
-    //Add vertex
-    public void addVertex(String vname){
-        Vertex vtx = new Vertex();
-        vtces.put(vname, vtx);
-    }
-
-    //Add Edge
-    public void addEdge(String vname1, String vname2, int cost){
-        Vertex vtx1 = vtces.get(vname1);
-        Vertex vtx2 = vtces.get(vname2); 
-
-        if(vtx1 == null || vtx2 == null || vtx1.nbrs.containsKey(vname2)){
-            return;
+class Graph { 
+    int num_Vertices = 6;  //number of vertices in graph
+    // find a vertex with minimum distance
+    int minDistance(int path_array[], Boolean sptSet[]){ 
+        // Initialize min value 
+        int min = Integer.MAX_VALUE, min_index = -1; 
+        for(int v = 0; v < num_Vertices; v++){
+            if(sptSet[v] == false && path_array[v] <= min){ 
+                min = path_array[v]; 
+                min_index = v; 
+            } 
         }
-
-        vtx1.nbrs.put(vname2, cost); 
-        vtx2.nbrs.put(vname1, cost); 
+        return min_index; 
     }
-
-    //Display graph
-    public void display(){
-        ArrayList<String> keys = new ArrayList<>(vtces.keySet());
-        for(String key : keys){
-            Vertex vtx = vtces.get(key);
-            System.out.println(key + ":" + vtx.nbrs); //HashMap gets printed directly
-        }
+   
+    // print the array of distances (path_array)
+    void printMinpath(int path_array[])   { 
+        System.out.println("Vertex# \t Minimum Distance from Source"); 
+        for(int i = 0; i < num_Vertices; i++){
+            System.out.println(i + " \t\t\t " + path_array[i]);
+        } 
     }
-
-    //Pair class
-    private class Pair implements Comparable<Pair>{
-        String vname;
-        String psf;
-        int cost;
-
-        @Override
-        public int compareTo(Pair o){
-            return o.cost-this.cost;
-        }
-    }
-
-    public HashMap<String, Integer> dijkstra(String src){
-        HashMap<String, Integer> ans = new HashMap<>();
-        HashMap<String, Pair> map = new HashMap<>();
-
-        //HeapGeneric<Pair> heap = new HeapGeneric<>();
-        //creating a min heap
-        PriorityQueue<Pair> heap = new PriorityQueue<>(new Comparator<Pair>(){
-                public int compare(Pair a, Pair b){
-                    return b.cost - a.cost;
-                }
-            }
-        );
-
-        //make a pair and put in heap and map
-        for(String key : vtces.keySet()){
-            Pair np = new Pair();
-            np.vname = key;
-            np.psf = "";
-            np.cost = Integer.MAX_VALUE;
-
-            if(key.equals(src)){
-                np.psf = key;
-                np.cost = 0;
-            }
-            heap.add(np);
-            map.put(key, np);
-        }
-
-        //till the heap is not empty keep on removing the pairs
-        while(heap.isEmpty()){
-            //remove a pair
-            Pair rp = heap.remove();
-            map.remove(rp.vname);
-
-            //add to ans
-            ans.put(rp.vname, rp.cost);
-
-            //nbrs
-            for(String nbr : vtces.get(rp.vname).nbrs.keySet()){
-
-                //work for nbrs which are in heap
-                if(map.containsKey(nbr)){
-                    int oldcost = map.get(nbr).cost;
-                    int newcost = rp.cost + vtces.get(rp.vname).nbrs.get(nbr);
-
-                    //update the pair only when newcost < oldcost
-                    if(newcost < oldcost){
-                        Pair getpair = map.get(nbr);
-                        getpair.psf = rp.psf + nbr;
-                        getpair.cost = newcost;
-                        heap.updatePriority(getpair);
-                    }
-                }
-            }
-        }
-
-        return ans;
-    }
+    
+    // Implementation of Dijkstra's algorithm for graph (adjacency matrix) 
+    void dijkstra(int graph[][], int src_node){ 
+        int path_array[] = new int[num_Vertices]; // The output array. dist[i] will hold 
+        // the shortest distance from src to i 
+   
+        // spt (shortest path set) contains vertices that have shortest path 
+        Boolean sptSet[] = new Boolean[num_Vertices]; 
+   
+        // Initially all the distances are INFINITE and stpSet[] is set to false 
+        for(int i = 0; i < num_Vertices; i++){ 
+            path_array[i] = Integer.MAX_VALUE; 
+            sptSet[i] = false; 
+        } 
+   
+        // Path between vertex and itself is always 0 
+        path_array[src_node] = 0; 
+        // now find shortest path for all vertices  
+        for(int count = 0; count < num_Vertices - 1; count++){ 
+            // call minDistance method to find the vertex with min distance
+            int u = minDistance(path_array, sptSet); 
+            // the current vertex u is processed
+            sptSet[u] = true; 
+            // process adjacent nodes of the current vertex
+            for(int v = 0; v < num_Vertices; v++){
+                // if vertex v not in sptset then update it  
+                if (!sptSet[v] && graph[u][v] != 0 && path_array[u] != Integer.MAX_VALUE && path_array[u] + graph[u][v] < path_array[v]) 
+                    path_array[v] = path_array[u] + graph[u][v];
+            } 
+        } 
+   
+        // print the path array 
+        printMinpath(path_array); 
+    } 
 }
-
-class GraphUse{
-    public static void main(String[] args) {
-        Graph graph = new Graph();
-
-        graph.addVertex("A");
-        graph.addVertex("B");
-        graph.addVertex("C");
-        graph.addVertex("D");
-        graph.addVertex("E");
-        graph.addVertex("F");
-        graph.addVertex("G");
-
-        graph.addEdge("A", "B", 2);
-        graph.addEdge("A", "D", 10);
-        graph.addEdge("B", "C", 3);
-        graph.addEdge("C", "D", 1);
-        graph.addEdge("D", "E", 8);
-        graph.addEdge("E", "F", 5);
-        graph.addEdge("E", "G", 6);
-        graph.addEdge("F", "G", 4);
-
-        System.out.println(graph.dijkstra("A"));
-
-    }
+class Solution{
+    public static void main(String[] args){ 
+        //example graph is given below
+        int graph[][] = new int[][] { { 0, 2, 1, 0, 0, 0}, 
+                                      { 2, 0, 7, 0, 8, 4}, 
+                                      { 1, 7, 0, 7, 0, 3}, 
+                                      { 0, 0, 7, 0, 8, 4}, 
+                                      { 0, 8, 0, 8, 0, 5}, 
+                                      { 0, 4, 3, 4, 5, 0} }; 
+        Graph g = new Graph(); 
+        g.dijkstra(graph, 0); 
+    } 
 }
-
-
- 
