@@ -46,6 +46,7 @@
 - [Striver's DSA - YouTube](https://www.youtube.com/c/takeUforward) - OP videos especially Graphs! <br>
 You can also refer to his SDE Sheet -> [Strivers SDE Sheet](https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/)
 - [Leetcode](https://leetcode.com/problemset/all/) - Tons of problems for you to learn, practice and improve!
+- [Hackerrank](https://www.hackerrank.com/dashboard) - Ideal for beginners, go for tracks like Problem Solving, SQL, any specific language (Java, C, CPP, Python) and more!
 - GFG - For legit everything!
 
 ### Theory Subjects
