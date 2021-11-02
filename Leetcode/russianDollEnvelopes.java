@@ -1,7 +1,19 @@
-//Improved Solution
 class Solution {
-    public int lengthOfLIS(int[] nums) {
-        return LISBU(nums);
+    public int maxEnvelopes(int[][] envelopes) {
+        int n = envelopes.length;
+        List<Pair> list = new ArrayList<>();
+        for(int i = 0; i < n; i++){
+            list.add(new Pair(envelopes[i][0], envelopes[i][1]));
+        }
+        
+        Collections.sort(list);
+        
+        int[] harr = new int[n];
+        for(int i = 0; i < n; i++){
+            harr[i] = list.get(i).height;
+        }
+        
+        return LISBU(harr);
     }
     
     public static int LISBU(int[] arr){
@@ -38,26 +50,19 @@ class Solution {
     }
 }
 
-
-//Old Solution
-
-class Solution {
-    public int lengthOfLIS(int[] nums) {
-        int[] strg = new int[nums.length];
-        Arrays.fill(strg, 1);
-        for(int i = 0; i < strg.length; i++){
-            for(int j = 0; j < i; j++){
-                if(nums[j] < nums[i]){
-                    strg[i] = Math.max(strg[i], strg[j]+1);
-                }
-            }
+class Pair implements Comparable<Pair> {
+    int width;
+    int height;
+    
+    public Pair(int width, int height){
+        this.width = width;
+        this.height = height;
+    }
+    
+    public int compareTo(Pair o){
+        if(this.width == o.width){
+            return o.height - this.height;
         }
-        int max = 1;
-        for(int i = 0; i < strg.length; i++){
-            if(strg[i] > max){
-                max = strg[i];
-            }
-        }
-        return max;
+        return this.width - o.width;
     }
 }
